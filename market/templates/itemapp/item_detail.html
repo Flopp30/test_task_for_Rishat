@@ -57,7 +57,7 @@
 {% block botjs %}
     {#___________ STRIPE SESSION __________________#}
     {{ block.super }}
-    <script defer>
+    <script>
         const csrfToken = document.querySelector("[name=csrfmiddlewaretoken]").value;
         let stripe = Stripe("{{ STRIPE_PUBLIC_KEY }}");
         document.querySelector("#checkout-button").addEventListener("click", function () {
@@ -131,7 +131,7 @@
                 elements,
                 confirmParams: {
                     // Make sure to change this to your payment completion page
-                    return_url: "{% url 'itemapp:cancel-page' %}",
+                    return_url: "http://127.0.0.1:8000"+ "{% url 'itemapp:success-page' %}",
                     receipt_email: emailAddress,
                 },
             });
