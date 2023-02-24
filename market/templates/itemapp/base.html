@@ -1,0 +1,29 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    {% block css %}
+        <link href="{% static 'css/intent_payment_flow.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    {% endblock %}
+    {% block topjs %}{% endblock %}
+</head>
+<body>
+{% include 'itemapp/includes/navbar.html' %}
+<div class=" container">
+    {% block content %}
+        Test block
+    {% endblock %}
+</div>
+
+{% block botjs %}
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+{% endblock %}
+</body>
+</html>

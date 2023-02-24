@@ -1,0 +1,14 @@
+{% extends 'itemapp/base.html' %}
+{% block content %}
+<section>
+    <p>Forgot to add something to your cart? Shop around then come back to pay!</p>
+</section>
+<div style="margin-top:10px">
+    <a class="btn btn-primary"
+       href="{% url 'itemapp:items-list-page' %}"
+       role="button"
+       style="background-color: #6c757d">
+        Back to items list
+    </a>
+</div>
+{% endblock %}
