@@ -18,6 +18,7 @@ class Item(CustomBaseModel):
     name = models.CharField(verbose_name='item name', max_length=150)
     description = models.TextField(verbose_name='description')
     price = models.IntegerField(verbose_name='price', default=0)  # cents
+    image = models.CharField(max_length=25, default="img/default_image.jpg", verbose_name="item image")
 
     def __str__(self):
         return self.name

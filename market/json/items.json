@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Test item 1",
+    "description": "Test description 1",
+    "price": "10000",
+    "image": "https://scientificrussia.ru/images/b/teb-full.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Test item 2",
+    "description": "Test description 2",
+    "price": "2500",
+    "image": "https://s13.stc.yc.kpcdn.net/share/i/instagram/B44solahwlo/wr-1280.webp"
+  },
+  {
+    "id": 3,
+    "name": "Test item 3",
+    "description": "Test description 3",
+    "price": "3070",
+    "image": "https://i.pinimg.com/736x/11/13/f6/1113f62b818e33f88264df5494694b1a.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Test item 4",
+    "description": "Test description 4",
+    "price": "4050",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCmqimEypvWIIL8gZ6PhTl1gbIbJjbPluXVw&usqp=CAU"
+  },
+  {
+    "id": 5,
+    "name": "Test item 5",
+    "description": "Test description 5",
+    "price": "5010",
+    "image": "https://ichef.bbci.co.uk/news/640/cpsprodpb/14A82/production/_116301648_gettyimages-1071204136.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Test item 6",
+    "description": "Test description 6",
+    "price": "60000",
+    "image": "https://avatars.mds.yandex.net/get-altay/4042551/2a00000180b2f36ba9c9ea012ee8005bec4e/XXL_height"
+  }
+]

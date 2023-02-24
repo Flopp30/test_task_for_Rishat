@@ -1,0 +1,23 @@
+{% extends 'itemapp/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for item in items %}
+            <div class="col">
+                <div class="card h-100" style="width: 10rem; padding: 10px;">
+                    <div>{{ item.name }}</div>
+                    <a href="{% url 'itemapp:item-detail-page' item.pk %}">
+                        <img src="{{  item.image }}" alt="item_logo" width="100rem" height="100rem">
+                    </a>
+                    <div>${{ item.get_display_price }}</div>
+                    <a class="btn btn-primary"
+                       href="{% url 'itemapp:item-detail-page' item.pk %}"
+                       role="button"
+                       style="background-color: #6c757d">
+                        Detail
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
