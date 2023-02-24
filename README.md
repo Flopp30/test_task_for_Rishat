@@ -26,10 +26,9 @@
 
 ## Запуск проекта (без докера)
 1) Сделать fork репозитория и склонировать его к себе на ПК
-2) Создать виртуальное окружение 
-   - ```python3 -m venv venv```
-   - ```source venv/bin/activate```
-3) Создать в корне проекта файл `.env` со следующими переменными (скопировать из .env.sample):
+2) Создать виртуальное окружение <br>```python3 -m venv venv```<br>```source venv/bin/activate```
+3) Установить зависимости <br> ```pip install -r requirements.txt```
+4) Создать в корне проекта файл `.env` со следующими переменными (скопировать из .env.sample):
     ```
     # Django setup
     DEBUG=  # [True, False]
@@ -40,10 +39,10 @@
     STRIPE_SECRET_KEY=  # put your key here
     DOMAIN=  # put your domain here
     ```
-4) Перейти в ```./makret``` и применить следующие команды:
-   - ```python3 manage.py migrate```
-   - ```python3 manage.py fill_data```
-   - ```python3 manage.py runserver```
+5) Перейти в ```./makret``` и применить следующие команды:<br>
+```python3 manage.py migrate```<br>
+```python3 manage.py fill_data```<br>
+```python3 manage.py runserver```
 
 Доступ к админке:
 - login: admin
