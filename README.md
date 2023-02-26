@@ -32,17 +32,19 @@
 3) Установить зависимости <br> ```pip install -r requirements.txt```
 4) Создать в корне проекта файл `.env` со следующими переменными (скопировать из ```.env.sample```):
     ```
-    # Django setup
-    DEBUG=  # [True, False]
-    ENV_TYPE=  # [local, prod]
-    
-    # network setting
-    PROTOCOL= # [http://, https://] put your protocol here
-    DOMAIN=  # put your domain here
-    
-    # Stripe setup
-    STRIPE_PUBLIC_KEY=  # put your key here
-    STRIPE_SECRET_KEY=  # put your key here
+   # Django setup
+   DEBUG=  # [True, False]
+   ENV_TYPE=  # [local, prod]
+   
+   # network setting
+   PROTOCOL= # [http://, https://]
+   DOMAIN=  # [127.0.0.1:8000/, localhost/]
+   
+   # DOMAIN = localhost/ - доступно для запуска через докер
+   
+   # Stripe setup
+   STRIPE_PUBLIC_KEY= 
+   STRIPE_SECRET_KEY= 
     ```
 5) Перейти в ```./makret``` и применить следующие команды:<br>
 ```python3 manage.py migrate```<br>
@@ -54,17 +56,18 @@
 2) В корне проекта создать файл ```.env-prod``` по аналогии с ```.env.sample```
     ```
     # Django setup
-    DEBUG=  # [True, False]
-    ENV_TYPE=  # [local, prod]
-    
-    # network setting
-    PROTOCOL= # [http://, https://] put your protocol here
-    DOMAIN=  # [localhost, 127.0.0.1:8000] put your domain here
-    # DOMAIN= localhost/ - доступно для запуска через докер
-    # DOMAIN=127.0.0.1:8000 - для запуска локально без докера
-    # Stripe setup
-    STRIPE_PUBLIC_KEY=  # put your key here
-    STRIPE_SECRET_KEY=  # put your key here
+   DEBUG=  # [True, False]
+   ENV_TYPE=  # [local, prod]
+   
+   # network setting
+   PROTOCOL= # [http://, https://]
+   DOMAIN=  # [127.0.0.1:8000/, localhost/]
+   
+   # DOMAIN = localhost/ - доступно для запуска через докер
+   
+   # Stripe setup
+   STRIPE_PUBLIC_KEY= 
+   STRIPE_SECRET_KEY= 
     ```
 3) Запустить команду ```docker-compose up --build```. 
 
