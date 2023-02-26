@@ -60,6 +60,7 @@
     <script>
         const csrfToken = document.querySelector("[name=csrfmiddlewaretoken]").value;
         let stripe = Stripe("{{ STRIPE_PUBLIC_KEY }}");
+        let SUCCESS_URL = "{{ SUCCESS_URL }}"
         document.querySelector("#checkout-button").addEventListener("click", function () {
             fetch("{% url 'itemapp:create-checkout-session' item.id %}", {
                 method: "GET",
@@ -130,7 +131,7 @@
                 elements,
                 confirmParams: {
                     // Make sure to change this to your payment completion page
-                    return_url: 'http://' + document.domain + "{% url 'itemapp:success-page' %}",
+                    return_url: SUCCESS_URL,
                     receipt_email: emailAddress,
                 },
             });

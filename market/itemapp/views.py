@@ -29,11 +29,12 @@ class ItemDetailPageView(TemplateView):
     def get_context_data(self, **kwargs):
         pk = self.kwargs.get('pk')
         item = get_object_or_404(Item, id=pk)
-
+        SUCCESS_URL = settings.URL + 'success/'
         context = super(ItemDetailPageView, self).get_context_data(**kwargs)
         context.update({
             'item': item,
             'STRIPE_PUBLIC_KEY': settings.STRIPE_PUBLIC_KEY,
+            'SUCCESS_URL': SUCCESS_URL,
         })
 
         return context
@@ -73,7 +74,6 @@ class CreateCheckoutSessionView(View):
 
         return JsonResponse({
             'id': checkout_session.id,
-            'lol': settings.URL
         })
 
 
