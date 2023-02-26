@@ -59,13 +59,14 @@
     
     # network setting
     PROTOCOL= # [http://, https://] put your protocol here
-    DOMAIN=  # put your domain here
-    
+    DOMAIN=  # [localhost, 127.0.0.1:8000] put your domain here
+    # DOMAIN= localhost/ - доступно для запуска через докер
+    # DOMAIN=127.0.0.1:8000 - для запуска локально без докера
     # Stripe setup
     STRIPE_PUBLIC_KEY=  # put your key here
     STRIPE_SECRET_KEY=  # put your key here
     ```
-3) Запустить команду ```docker-compose up --build```. Проект будет доступен на http://localhost
+3) Запустить команду ```docker-compose up --build```. 
 
 # Доступ к админке:
 - login: admin
