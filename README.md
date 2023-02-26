@@ -108,6 +108,6 @@
    ![img.png](screenshots/flopp_ru_admin1.png) <br><br>
 4) Запуск приложения на удаленном сервере, доступном для тестирования: http://flopp.ru
 5) Реализовать не Stripe Session, а Stripe Payment Intent.
-   - ![img.png](screenshots/stripe_payment_intent_1.png) <br><br>
-   - ![img.png](screenshots/stripe_payment_intent_2.png) <br><br>
-   - ![img.png](screenshots/stripe_payment_intent_3.png)
+   ![img.png](screenshots/stripe_payment_intent_1.png) <br><br>
+   ![img.png](screenshots/stripe_payment_intent_2.png) <br><br>
+   ![img.png](screenshots/stripe_payment_intent_3.png)
