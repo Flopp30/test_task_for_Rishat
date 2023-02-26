@@ -1,5 +1,5 @@
 from django.urls import path
-from apps import ItemappConfig
+from itemapp.apps import ItemappConfig
 from .views import (
     CreateCheckoutSessionView,
     StripeIntentView,
