@@ -67,8 +67,8 @@ class CreateCheckoutSessionView(View):
                 },
             ],
             mode='payment',
-            success_url=settings.DOMAIN + '/success/',
-            cancel_url=settings.DOMAIN + '/cancel/',
+            success_url=settings.URL + '/success/',
+            cancel_url=settings.URL + '/cancel/',
         )
 
         return JsonResponse({
