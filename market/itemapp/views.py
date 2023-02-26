@@ -67,12 +67,13 @@ class CreateCheckoutSessionView(View):
                 },
             ],
             mode='payment',
-            success_url=settings.URL + '/success/',
-            cancel_url=settings.URL + '/cancel/',
+            success_url=settings.URL + 'success/',
+            cancel_url=settings.URL + 'cancel/',
         )
 
         return JsonResponse({
-            'id': checkout_session.id
+            'id': checkout_session.id,
+            'lol': settings.URL
         })
 
 

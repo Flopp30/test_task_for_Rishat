@@ -126,7 +126,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # network settings
 PROTOCOL = os.getenv('PROTOCOL')
 DOMAIN = os.getenv('DOMAIN')
-URL = PROTOCOL + DOMAIN
+URL = f'{PROTOCOL}{DOMAIN}'
 
 # Stripe setup
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY')
