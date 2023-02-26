@@ -89,7 +89,6 @@
 
         initialize();
         checkStatus();
-
         document
             .querySelector("#payment-form")
             .addEventListener("submit", handleSubmit);
@@ -131,7 +130,7 @@
                 elements,
                 confirmParams: {
                     // Make sure to change this to your payment completion page
-                    return_url: "http://127.0.0.1:8000"+ "{% url 'itemapp:success-page' %}",
+                    return_url: 'http://' + document.domain + "{% url 'itemapp:success-page' %}",
                     receipt_email: emailAddress,
                 },
             });
