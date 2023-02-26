@@ -4,7 +4,7 @@ from .models import Item
 
 @admin.register(Item)
 class ItemAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'name', 'description', 'price', 'created_at', 'updated_at')
+    list_display = ('pk', 'name', 'description', 'price', 'created_at', 'updated_at', 'deleted')
     list_filter = ('deleted', 'created_at')
     ordering = ('-pk', 'deleted', 'created_at')
     list_per_page = 20

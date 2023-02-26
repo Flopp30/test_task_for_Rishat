@@ -1,6 +1,8 @@
 # Тестовое задание
 <hr>
 
+## Посмотреть проект можно: <i><b><a href="http://flopp.ru">тут</a></b></i>
+
 ### Основное задачи:
 Реализовать Django + Stripe API бэкенд со следующим функционалом и условиями:
 - [x] Django Модель Item с полями (name, description, price) 
@@ -24,28 +26,84 @@
 - stripe==5.2.0
 <hr>
 
-## Запуск проекта (без докера)
+## Запуск проекта (локально)
 1) Сделать fork репозитория и склонировать его к себе на ПК
 2) Создать виртуальное окружение <br>```python3 -m venv venv```<br>```source venv/bin/activate```
 3) Установить зависимости <br> ```pip install -r requirements.txt```
-4) Создать в корне проекта файл `.env` со следующими переменными (скопировать из .env.sample):
+4) Создать в корне проекта файл `.env` со следующими переменными (скопировать из ```.env.sample```):
     ```
     # Django setup
     DEBUG=  # [True, False]
     ENV_TYPE=  # [local, prod]
     
+    # network setting
+    PROTOCOL= # [http://, https://] put your protocol here
+    DOMAIN=  # put your domain here
+    
     # Stripe setup
     STRIPE_PUBLIC_KEY=  # put your key here
     STRIPE_SECRET_KEY=  # put your key here
-    DOMAIN=  # put your domain here
     ```
 5) Перейти в ```./makret``` и применить следующие команды:<br>
 ```python3 manage.py migrate```<br>
 ```python3 manage.py fill_data```<br>
 ```python3 manage.py runserver```
 
-Доступ к админке:
+## Запуск проекта (docker / docker-compose)
+1) Сделать fork репозитория и склонировать его к себе на ПК
+2) В корне проекта создать файл ```.env-prod``` по аналогии с ```.env.sample```
+    ```
+    # Django setup
+    DEBUG=  # [True, False]
+    ENV_TYPE=  # [local, prod]
+    
+    # network setting
+    PROTOCOL= # [http://, https://] put your protocol here
+    DOMAIN=  # put your domain here
+    
+    # Stripe setup
+    STRIPE_PUBLIC_KEY=  # put your key here
+    STRIPE_SECRET_KEY=  # put your key here
+    ```
+3) Запустить команду ```docker-compose up --build```. Проект будет доступен на http://localhost
+
+# Доступ к админке:
 - login: admin
 - password: admin
 
 <hr>
+
+### Отчет о выполнении основного задания:
+1) Django модель (market/itemapp/models.py) <br>
+    ![img.png](screenshots/models.png) <br><br>
+2) GET /buy/{id}<br>
+   ![img.png](screenshots/http_get_buy_1.png) <br><br>
+3) GET /item/{id}<br>
+    ![img.png](screenshots/get_item_1.png)
+
+### Отчет о выполнении дополнительных заданий:
+1) Запуск используя Docker
+   - Docker-compose.yml<br>
+   ![img.png](screenshots/docker-compose.png) <br><br>
+   - Django Dockerfile<br>
+   ![img.png](screenshots/django_dockerfile.png) <br><br>
+   - Nginx Dockerfile<br>
+   ![img.png](screenshots/nginx-dockerfile.png) <br><br>
+   - Nginx default.conf<br>
+   ![img_1.png](screenshots/nginx_defaultconf.png) <br><br>
+2) Использование environment variables
+   - .env.sample<br>
+   ![img.png](screenshots/env_sample.png) <br><br>
+   - market/config/settings.py<br>
+   ![img.png](screenshots/settings_py.png) <br><br>
+3) Просмотр Django Моделей в Django Admin панели
+   - market/itemapp/admin.py<br>
+   ![img.png](screenshots/market_itemapp_admin.png) <br><br>
+   - flopp.ru/admin<br>
+   ![img.png](screenshots/flopp_ru_admin.png) <br><br>
+   ![img.png](screenshots/flopp_ru_admin1.png) <br><br>
+4) Запуск приложения на удаленном сервере, доступном для тестирования: http://flopp.ru
+5) Реализовать не Stripe Session, а Stripe Payment Intent.
+   - ![img.png](screenshots/stripe_payment_intent_1.png) <br><br>
+   - ![img.png](screenshots/stripe_payment_intent_2.png) <br><br>
+   - ![img.png](screenshots/stripe_payment_intent_3.png)
