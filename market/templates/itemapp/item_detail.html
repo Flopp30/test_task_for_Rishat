@@ -62,7 +62,7 @@
         let stripe = Stripe("{{ STRIPE_PUBLIC_KEY }}");
         document.querySelector("#checkout-button").addEventListener("click", function () {
             fetch("{% url 'itemapp:create-checkout-session' item.id %}", {
-                method: "POST",
+                method: "GET",
                 headers: {
                     'X-CSRFToken': csrfToken,
                 }
@@ -97,7 +97,7 @@
 
         async function initialize() {
             const response = await fetch("{% url 'itemapp:create-payment-intent' item.pk %}", {
-                method: "POST",
+                method: "GET",
                 headers: {
                     "Content-Type": "application/json",
                     'X-CSRFToken': csrfToken,
