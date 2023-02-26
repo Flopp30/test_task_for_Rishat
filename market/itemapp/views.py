@@ -29,16 +29,25 @@ class ItemDetailPageView(TemplateView):
     def get_context_data(self, **kwargs):
         pk = self.kwargs.get('pk')
         item = get_object_or_404(Item, id=pk)
-        SUCCESS_URL = settings.URL + 'success/'
         context = super(ItemDetailPageView, self).get_context_data(**kwargs)
         context.update({
             'item': item,
             'STRIPE_PUBLIC_KEY': settings.STRIPE_PUBLIC_KEY,
-            'SUCCESS_URL': SUCCESS_URL,
         })
 
         return context
 
+
+class ItemPaymentFlowPage(ItemDetailPageView):
+    template_name = 'itemapp/payment_flow.html'
+    def get_context_data(self, **kwargs):
+        SUCCESS_URL = settings.URL + 'success/'
+        context = super(ItemPaymentFlowPage, self).get_context_data(**kwargs)
+        context.update({
+            'SUCCESS_URL': SUCCESS_URL
+        })
+
+        return context
 
 class SuccessPageView(TemplateView):
     template_name = 'itemapp/success.html'
@@ -69,7 +78,7 @@ class CreateCheckoutSessionView(View):
             ],
             mode='payment',
             success_url=settings.URL + 'success/',
-            cancel_url=settings.URL + 'cancel/',
+            cancel_url=settings.URL + f'item/{item_id}',
         )
 
         return JsonResponse({
