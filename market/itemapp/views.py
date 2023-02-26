@@ -48,7 +48,7 @@ class CancelPageView(TemplateView):
 
 
 class CreateCheckoutSessionView(View):
-    def post(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         item_id = self.kwargs['pk']
         item = Item.objects.get(id=item_id)
         checkout_session = stripe.checkout.Session.create(
@@ -77,7 +77,7 @@ class CreateCheckoutSessionView(View):
 
 
 class StripeIntentView(View):
-    def post(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         try:
             item_id = self.kwargs['pk']
             item = Item.objects.get(id=item_id)
