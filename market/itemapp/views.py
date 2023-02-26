@@ -48,7 +48,7 @@ class CancelPageView(TemplateView):
 
 
 class CreateCheckoutSessionView(View):
-    def post(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         item_id = self.kwargs['pk']
         item = Item.objects.get(id=item_id)
         checkout_session = stripe.checkout.Session.create(
@@ -67,17 +67,18 @@ class CreateCheckoutSessionView(View):
                 },
             ],
             mode='payment',
-            success_url=settings.DOMAIN + '/success/',
-            cancel_url=settings.DOMAIN + '/cancel/',
+            success_url=settings.URL + 'success/',
+            cancel_url=settings.URL + 'cancel/',
         )
 
         return JsonResponse({
-            'id': checkout_session.id
+            'id': checkout_session.id,
+            'lol': settings.URL
         })
 
 
 class StripeIntentView(View):
-    def post(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         try:
             item_id = self.kwargs['pk']
             item = Item.objects.get(id=item_id)

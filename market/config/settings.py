@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-#%6i+v#7xf7gt$jy-x%oh(=a8xicdr=72ss8cpt_9+_9&br)wv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = (os.getenv('DEBUG', 'False') == 'True')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -27,11 +27,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # other
+    'corsheaders',
+
     # custom
     'itemapp',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -119,8 +123,16 @@ else:
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# network settings
+PROTOCOL = os.getenv('PROTOCOL')
+DOMAIN = os.getenv('DOMAIN')
+URL = f'{PROTOCOL}{DOMAIN}'
+
 # Stripe setup
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
-DOMAIN = os.getenv('DOMAIN')
 
+
+# CORS SETTING
+CORS_ORIGIN_ALLOW_ALL = True
+CSRF_TRUSTED_ORIGINS = ['http://*.flopp.ru', 'http://*.127.0.0.1', 'http://localhost']
