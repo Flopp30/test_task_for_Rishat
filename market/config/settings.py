@@ -123,12 +123,15 @@ else:
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Stripe setup
-STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY')
-STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
+# network settings
 PROTOCOL = os.getenv('PROTOCOL')
 DOMAIN = os.getenv('DOMAIN')
 URL = PROTOCOL + DOMAIN
+
+# Stripe setup
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
+
 
 # CORS SETTING
 CORS_ORIGIN_ALLOW_ALL = True
