@@ -5,7 +5,7 @@ services:
         volumes:
             - static:/app/static
         env_file:
-            - .env
+            - .env-prod
         build:
             context: .
         expose:
